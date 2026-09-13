@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.clase1.gestordevehiculos;
-import com.mycompany.clase1.gestordevehiculos.model.*;
+package com.clase1.gestordevehiculos;
+import com.clase1.gestordevehiculos.model.Vehiculo;
+import com.clase1.gestordevehiculos.model.Motor;
+import com.clase1.gestordevehiculos.model.TiposCombustible;
 /**
  *
  * @author Laboratorio
