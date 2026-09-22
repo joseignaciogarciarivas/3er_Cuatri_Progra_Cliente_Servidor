@@ -10,4 +10,5 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.ejercicio_07.Formas</exec.mainClass>
     </properties>
+    <name>Practica_Clase_03_P07_Geometria</name>
 </project>
