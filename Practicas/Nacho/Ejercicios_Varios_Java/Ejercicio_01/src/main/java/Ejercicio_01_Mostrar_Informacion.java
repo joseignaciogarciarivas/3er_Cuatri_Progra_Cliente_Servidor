@@ -1,4 +1,4 @@
-package com.ejercicios_nacho; 
+ 
 
 public class Ejercicio_01_Mostrar_Informacion {
 

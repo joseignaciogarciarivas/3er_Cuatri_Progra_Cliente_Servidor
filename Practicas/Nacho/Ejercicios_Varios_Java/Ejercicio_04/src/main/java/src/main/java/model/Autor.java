@@ -1,4 +1,4 @@
-package com.ejercicios_nacho.Ejercicio_04;
+package src.main.java.model;
 
 public class Autor {
     private String nombre;
@@ -29,7 +29,7 @@ public class Autor {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Autor: " + Autor);
+        sb.append("Autor: " + nombre);
         sb.append("Nacionalidad: " + nacionalidad);
         sb.append("Genero Literario: " + Genlit);
         return sb.toString();

@@ -1,4 +1,4 @@
-package com.ejercicios_nacho.Ejercicio_04;
+package src.main.java.model;
 
 public class Libro{
     private String titulo;
@@ -20,15 +20,15 @@ public class Libro{
         return cantidadLibros;
     }
 
-    @Override 
-    public String toString(){
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Titulo: " + titulo);
-        sb.append("ISBN: " + isbn);
-        sb.append("Cantidad de Libros: " + cantidadLibros);
-        sb.append("Autor: " + autor);
+        sb.append("Libro{");
+        sb.append("titulo=").append(titulo);
+        sb.append(", isbn=").append(isbn);
+        sb.append(", autor=").append(autor);
+        sb.append('}');
         return sb.toString();
-
     }
     
 
