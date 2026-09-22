@@ -1,4 +1,4 @@
-package ejercicios_canelo.ejercicio_6.model;
+package com.ejercicio_06.model;
 
 public class Libro {
 

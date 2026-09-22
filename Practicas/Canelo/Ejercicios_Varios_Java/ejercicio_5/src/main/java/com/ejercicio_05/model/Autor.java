@@ -1,4 +1,4 @@
-package ejercicios_canelo.ejercicio_5.model;
+package com.ejercicio_5.model;
 
 public class Autor {
 

@@ -1,8 +1,7 @@
-package ejercicios_canelo.ejercicio_6;
+package com.ejercicio_06;
 
-import ejercicios_canelo.ejercicio_6.model.*;
-
-import ejercicios_canelo.ejercicio_6.model.Autor.GeneroLiterario;
+import com.ejercicio_06.model.*;
+import com.ejercicio_06.model.Autor.GeneroLiterario;
 
 public class Main{
     
