@@ -1,0 +1,5 @@
+gestordevehiculos\model\Motor.class
+gestordevehiculos\model\VehiculoPickup.class
+gestordevehiculos\model\Vehiculo.class
+gestordevehiculos\view\VehiculoPickupGUI.class
+gestordevehiculos\model\TiposCombustible.class
