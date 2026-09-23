@@ -1,8 +1,8 @@
-package ejercicios_canelo.ejercicio_4;
+package com.ejercicio_04;
 
-import ejercicios_canelo.ejercicio_4.model.Biblioteca;
-import ejercicios_canelo.ejercicio_4.model.Libro;
-import ejercicios_canelo.ejercicio_4.model.Autor;
+import com.ejercicio_04.model.Biblioteca;
+import com.ejercicio_04.model.Libro;
+import com.ejercicio_04.model.Autor;
 
 public class Main {
     

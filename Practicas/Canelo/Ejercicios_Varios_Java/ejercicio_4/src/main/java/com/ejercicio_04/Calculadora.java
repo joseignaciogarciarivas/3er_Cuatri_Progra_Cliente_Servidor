@@ -1,6 +1,6 @@
-package ejercicios_canelo.ejercicio_3;
+package com.ejercicio_04;
 
-import ejercicios_canelo.ejercicio_3.model.Procesos;
+import com.ejercicio_04.model.Procesos;
 
 public class Calculadora {
 

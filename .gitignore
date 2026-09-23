@@ -1,13 +1,10 @@
-/Clase2-Canelo88/target/
-/Clase_03_Geometria_Codigo_Profe/target/
-/Practicas/Canelo/Clase_02_Canelo88/target/
-/Clase_02_Gestion_Vehiculos/target/
-/Clase_03_Geometria/target/
-/formas/formas/target/
-/formas/target/
-/Clase_03_GeometriaP/target/
-/Clase/Clase_03_Geometria/target/
-/En Clase/Clase_03_Geometria/target/
-/En Clase/Clase1-GestordeVehiculos/target/
-/Practicas/Nacho/Ejercicios_Varios_Java/Ejercicio_01/target/
-/Practicas/Nacho/Ejercicios_Varios_Java/Ejercicio_04/target/
+# Maven
+**/target/
+
+# NetBeans
+nbactions.xml
+nb-configuration.xml
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
