@@ -69,10 +69,10 @@ public class Automovil extends Vehiculo implements Dibujable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nMarca: ").append(getMarca());
-        sb.append("\nModelo: ").append(getModelo());
-        sb.append("\nCombustible ").append(getCombustible());
-        sb.append("\nRendimiento (km * L): ").append(rendimientoKmPorLitro);
+        sb.append("\tMarca: ").append(getMarca());
+        sb.append("\n\tModelo: ").append(getModelo());
+        sb.append("\n\tCombustible ").append(getCombustible());
+        sb.append("\n\tRendimiento (km * L): ").append(rendimientoKmPorLitro);
 
         return sb.toString();
     }

@@ -53,8 +53,8 @@ public class Motocicleta extends Vehiculo implements Dibujable {
                 super.paintComponent(g);
 
                 Graphics2D g2 = (Graphics2D) g;
-
-                //Cuadricula
+                g2.setStroke(new BasicStroke(2));
+//                //Cuadricula
 //                g.drawLine(000, 00, 400, 00);
 //                g.drawLine(000, 25, 400, 25);
 //                g.drawLine(000, 50, 400, 50);
@@ -272,7 +272,7 @@ public class Motocicleta extends Vehiculo implements Dibujable {
         };
 
         ventana.add(panel);
-        ventana.setSize(500, 500);
+        ventana.setSize(400, 400);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
@@ -282,10 +282,10 @@ public class Motocicleta extends Vehiculo implements Dibujable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nMarca: ").append(getMarca());
-        sb.append("\nModelo: ").append(getModelo());
-        sb.append("\nCombustible ").append(getCombustible());
-        sb.append("\nRendimiento (km * L): ").append(rendimientoKmPorLitro);
+        sb.append("\tMarca: ").append(getMarca());
+        sb.append("\n\tModelo: ").append(getModelo());
+        sb.append("\n\tCombustible ").append(getCombustible());
+        sb.append("\n\tRendimiento (km * L): ").append(rendimientoKmPorLitro);
 
         return sb.toString();
     }
