@@ -1,4 +1,4 @@
-package ejercicios_canelo.ejercicio_1;
+package com.ejercicio_01;
 
 public class Mostrar_Informacion {
      

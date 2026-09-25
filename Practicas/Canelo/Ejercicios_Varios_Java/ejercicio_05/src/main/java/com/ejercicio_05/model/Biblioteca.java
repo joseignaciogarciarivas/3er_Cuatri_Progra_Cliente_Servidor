@@ -1,4 +1,4 @@
-package com.ejercicio_5.model;
+package com.ejercicio_05.model;
 
 import java.util.ArrayList;
 
