@@ -10,4 +10,5 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.ejercicio_03.Calculadora</exec.mainClass>
     </properties>
+    <name>Practica_Clase_02_P03_Calculadora_v2</name>
 </project>
