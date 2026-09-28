@@ -13,40 +13,32 @@ import java.awt.*;
  */
 public class Camion extends Vehiculo implements Dibujable {
 
-    private double cargaToneladas;
+    private int cargaToneladas;
 
     public Camion() {
     }
 
-    public Camion(double cargaToneladas) {
+    public Camion(String pMarca, String pModelo, int pCombustible, int cargaToneladas) {
+        super(pMarca, pModelo, pCombustible);
         this.cargaToneladas = cargaToneladas;
     }
 
-    public double getCargaToneladas() {
+    public int getCargaToneladas() {
         return cargaToneladas;
     }
 
-    public void setCargaToneladas(double cargaToneladas) {
+    public void setCargaToneladas(int cargaToneladas) {
         this.cargaToneladas = cargaToneladas;
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Camion{");
-        sb.append("cargaToneladas=").append(cargaToneladas);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
-    public double calcularAutonomia() {
+    public int calcularAutonomia() {
         return (getCombustible() * 4) - (10 * cargaToneladas);
     }
 
     @Override
-    public String getTipoVehiculo() {
-        return "Camion";
+    public TipoVehiculo getTipoVehiculo() {
+        return TipoVehiculo.CAMION;
     }
 
     @Override
@@ -54,7 +46,7 @@ public class Camion extends Vehiculo implements Dibujable {
         JFrame ventana = new JFrame("Camion");
         JPanel panel = new JPanel() {
             protected void paintComponent(Graphics g) {
-                
+
                 int[] x = {};
                 int[] y = {};
 
@@ -67,5 +59,15 @@ public class Camion extends Vehiculo implements Dibujable {
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
 
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t rendimientoKmPorLitro = ").append(cargaToneladas);
+        sb.append("\n\t Marca: ").append(getMarca());
+        sb.append("\n\t Modelo: ").append(getModelo());
+        sb.append("\n\t Combustible: ").append(getCombustible() + ("L"));
+        return sb.toString();
     }
 }

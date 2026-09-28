@@ -12,34 +12,37 @@ public abstract class Vehiculo {
 
     private String marca;
     private String modelo;
-    private double combustible;
+    private int combustible;
 
-    public abstract double calcularAutonomia();
+    public abstract int calcularAutonomia();
 
-    public abstract String getTipoVehiculo();
+    public abstract TipoVehiculo getTipoVehiculo();
+
+    public Vehiculo() {
+    }
+
+    public Vehiculo(String pMarca, String pModelo, int pCombustible) {
+        this.marca = pMarca;
+        this.modelo = pModelo;
+        this.combustible = pCombustible;
+    }
 
     public String getMarca() {
         return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public double getCombustible() {
+    public int getCombustible() {
         return combustible;
     }
 
-    public void setCombustible(double combustible) {
-        this.combustible = combustible;
+    public enum TipoVehiculo {
+        AUTOMOVIL,
+        MOTOCICLETA,
+        CAMION;
     }
 
 }

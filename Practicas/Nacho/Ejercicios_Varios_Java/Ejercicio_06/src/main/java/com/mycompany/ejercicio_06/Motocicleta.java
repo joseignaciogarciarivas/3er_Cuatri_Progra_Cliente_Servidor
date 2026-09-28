@@ -13,12 +13,13 @@ import java.awt.*;
  */
 public class Motocicleta extends Vehiculo implements Dibujable {
 
-    private double rendimientoKmPorLitro;
+    private int rendimientoKmPorLitro;
 
     public Motocicleta() {
     }
 
-    public Motocicleta(double rendimientoKmPorLitro) {
+    public Motocicleta(String pMarca, String pModelo, int pCombustible, int rendimientoKmPorLitro) {
+        super(pMarca, pModelo, pCombustible);
         this.rendimientoKmPorLitro = rendimientoKmPorLitro;
     }
 
@@ -26,27 +27,18 @@ public class Motocicleta extends Vehiculo implements Dibujable {
         return rendimientoKmPorLitro;
     }
 
-    public void setRendimientoKmPorLitro(double rendimientoKmPorLitro) {
+    public void setRendimientoKmPorLitro(int rendimientoKmPorLitro) {
         this.rendimientoKmPorLitro = rendimientoKmPorLitro;
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Motocicleta{");
-        sb.append("rendimientoKmPorLitro=").append(rendimientoKmPorLitro);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
-    public double calcularAutonomia() {
+    public int calcularAutonomia() {
         return getCombustible() * rendimientoKmPorLitro;
     }
 
     @Override
-    public String getTipoVehiculo() {
-        return "Motocicleta";
+    public TipoVehiculo getTipoVehiculo() {
+        return TipoVehiculo.MOTOCICLETA;
     }
 
     @Override
@@ -55,8 +47,8 @@ public class Motocicleta extends Vehiculo implements Dibujable {
         JPanel panel = new JPanel() {
             protected void paintComponent(Graphics g) {
 
-                int[] x = {300,300, 275, 250,285, 225, 200, 250, 125, 25, 50, 125,225};
-                int[] y = {100, 150, 125, 75, 175, 125, 175, 175, 125, 125,200, 250, 250};
+                int[] x = {300, 300, 275, 250, 285, 225, 200, 250, 125, 25, 50, 125, 225};
+                int[] y = {100, 150, 125, 75, 175, 125, 175, 175, 125, 125, 200, 250, 250};
                 g.drawPolygon(x, y, 13);
             }
         };
@@ -68,4 +60,13 @@ public class Motocicleta extends Vehiculo implements Dibujable {
 
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t rendimientoKmPorLitro = ").append(rendimientoKmPorLitro);
+        sb.append("\n\t Marca: ").append(getMarca());
+        sb.append("\n\t Modelo: ").append(getModelo());
+        sb.append("\n\t Combustible: ").append(getCombustible()+ ("L"));
+        return sb.toString();
+    }
 }

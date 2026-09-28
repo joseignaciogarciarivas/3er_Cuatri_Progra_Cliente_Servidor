@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.ejercicio_06;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +9,14 @@ import java.awt.*;
  */
 public class Automovil extends Vehiculo implements Dibujable {
 
-    private double rendimientoKmPorLitro;
+    private int rendimientoKmPorLitro;
 
     public Automovil() {
+
     }
 
-    public Automovil(double rendimientoKmPorLitro) {
+    public Automovil(String pMarca, String pModelo, int pCombustible, int rendimientoKmPorLitro) {
+        super(pMarca, pModelo, pCombustible);
         this.rendimientoKmPorLitro = rendimientoKmPorLitro;
     }
 
@@ -27,27 +24,18 @@ public class Automovil extends Vehiculo implements Dibujable {
         return rendimientoKmPorLitro;
     }
 
-    public void setRendimientoKmPorLitro(double rendimientoKmPorLitro) {
+    public void setRendimientoKmPorLitro(int rendimientoKmPorLitro) {
         this.rendimientoKmPorLitro = rendimientoKmPorLitro;
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Automovil{");
-        sb.append("rendimientoKmPorLitro=").append(rendimientoKmPorLitro);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
-    public double calcularAutonomia() {
+    public int calcularAutonomia() {
         return getCombustible() * rendimientoKmPorLitro;
     }
 
     @Override
-    public String getTipoVehiculo() {
-        return "Automovil";
+    public TipoVehiculo getTipoVehiculo() {
+        return TipoVehiculo.AUTOMOVIL;
     }
 
     @Override
@@ -57,11 +45,10 @@ public class Automovil extends Vehiculo implements Dibujable {
             protected void paintComponent(Graphics g) {
                 g.fillOval(60, 250, 100, 100);
                 g.fillOval(240, 250, 100, 100);
-                int[] x = {100,300,320, 380, 380, 350,250, 150, 50, 20, 20, 80};
-                int[] y = {100,100, 200, 200, 300, 300, 300, 300, 300, 300, 200, 200};
+                int[] x = {100, 300, 320, 380, 380, 350, 250, 150, 50, 20, 20, 80};
+                int[] y = {100, 100, 200, 200, 300, 300, 300, 300, 300, 300, 200, 200};
                 g.drawPolygon(x, y, 12);
-                
-                
+
             }
         };
         ventana.add(panel);
@@ -71,4 +58,13 @@ public class Automovil extends Vehiculo implements Dibujable {
         ventana.setVisible(true);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\t rendimientoKmPorLitro = ").append(rendimientoKmPorLitro);
+        sb.append("\n\t Marca: ").append(getMarca());
+        sb.append("\n\t Modelo: ").append(getModelo());
+        sb.append("\n\t Combustible: ").append(getCombustible()+ ("L"));
+        return sb.toString();
+    }
 }

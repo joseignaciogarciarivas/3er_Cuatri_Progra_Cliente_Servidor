@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.ejercicio_06;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -11,22 +9,36 @@ package com.mycompany.ejercicio_06;
 public class Ejercicio_06 {
 
     public static void main(String[] args) {
-        Automovil miAutomovil = new Automovil(300000);
-        System.out.println("El tipo de vehiculo es: " + miAutomovil.getTipoVehiculo());
-        System.out.println("La autonomia del Automovil es: " + miAutomovil.calcularAutonomia());
+        Vehiculo miAutomovil = new Automovil("Nissan", "Qashqai", 40, 400);
+        Vehiculo miMotocicleta = new Motocicleta("Honda", "mamalona", 20, 400);
+        Vehiculo miCamion = new Camion("Kia", "Bongo", 120, 40);
         
-        miAutomovil.dibujar();
-               
-        Motocicleta miMotocicleta = new Motocicleta(30000);
-        System.out.println("El tipo de vehiculo es: " + miMotocicleta.getTipoVehiculo());
-        System.out.println("La autonomia de la Motocicleta es: " + miMotocicleta.calcularAutonomia());
+        Dibujable dAutomovil = new Automovil();
+        dAutomovil.dibujar();
         
-        miMotocicleta.dibujar();
-        
-        Camion miCamion = new Camion(30000);
-        System.out.println("El tipo de vehiculo es: " + miCamion.getTipoVehiculo());
-        System.out.println("La autonomia de la Camion es: " + miCamion.calcularAutonomia());
-        
-        miCamion.dibujar();
+        Dibujable dMotocicleta = new Motocicleta();
+        dMotocicleta.dibujar();
+
+        Dibujable dCamion = new Camion();
+        dCamion.dibujar();
+
+        ArrayList<Vehiculo> arrVehiculos = new ArrayList<>();
+
+        arrVehiculos.add(miAutomovil);
+        arrVehiculos.add(miMotocicleta);
+        arrVehiculos.add(miCamion);
+
+        for (Vehiculo vehiculo : arrVehiculos) {
+            switch (vehiculo.getTipoVehiculo()) {
+                case AUTOMOVIL -> System.out.println("\n AUTOMOVIL \n");
+                case MOTOCICLETA -> System.out.println("\n MOTOCICLETA \n");
+                case CAMION -> System.out.println("\n CAMION \n");
+                   
+            }
+
+            System.out.println("\t Tipo de vehiculo: " + vehiculo.getTipoVehiculo());
+            System.out.println(vehiculo.toString());
+            System.out.println("\t Calcular autonomia: " + vehiculo.calcularAutonomia());
+        }
     }
 }
