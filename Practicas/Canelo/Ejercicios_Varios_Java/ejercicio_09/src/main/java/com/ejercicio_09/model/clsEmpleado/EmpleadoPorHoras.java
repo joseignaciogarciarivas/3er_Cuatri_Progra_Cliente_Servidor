@@ -1,4 +1,7 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.clsEmpleado;
+
+import com.ejercicio_09.model.Excepciones.EmpleadoException;
+import com.ejercicio_09.model.Excepciones.ErrorEmpleado;
 
 /**
  *
@@ -58,8 +61,8 @@ public class EmpleadoPorHoras extends Empleado implements Pagable {
     }
 
     @Override
-    public void MostrarPago() {
-        System.out.println("Salario Empleado del Fijo: " + CalcularPago());
+    public String MostrarPago() {
+        return "Salario Empleado del Fijo: " + CalcularPago();
     }
 
     @Override

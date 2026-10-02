@@ -1,5 +1,6 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.Comparador;
 
+import com.ejercicio_09.model.clsEmpleado.Empleado;
 import java.util.Comparator;
 
 /**

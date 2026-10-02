@@ -1,4 +1,4 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.clsEmpleado;
 
 /**
  *
@@ -6,6 +6,6 @@ package com.ejercicio_09.model;
  */
 public interface Pagable {
     
-    void MostrarPago();
+    String MostrarPago();
     
 }
