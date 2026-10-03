@@ -3,7 +3,13 @@
  */
 package com.ejercicio_09;
 
-import com.ejercicio_09.model.*;
+import com.ejercicio_09.model.Excepciones.EmpleadoException;
+import com.ejercicio_09.model.Excepciones.ErrorEmpleado;
+import com.ejercicio_09.model.clsEmpleado.EmpleadoComision;
+import com.ejercicio_09.model.clsEmpleado.Empleado;
+import com.ejercicio_09.model.clsEmpleado.EmpleadoFijo;
+import com.ejercicio_09.model.clsEmpleado.EmpleadoPorHoras;
+import com.ejercicio_09.model.clsEmpleado.Pagable;
 import java.util.ArrayList;
 
 /**
@@ -14,10 +20,14 @@ public class GestionEmpleados {
 
     public static void main(String[] args) throws EmpleadoException {
 
+        // <editor-fold defaultstate="collapsed" desc="1. REGISTRAR EMPLEADOS DE CUALQUIERA DE LAS TRES MODALIDADES">
+        System.out.println("╔═══════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║     1. REGISTRAR EMPLEADOS DE CUALQUIERA DE LAS TRES MODALIDADES      ║");
+
         ArrayList<Empleado> arrEmp = new ArrayList<>();
 
         // Empleados Fijos
-        EmpleadoFijo fijo1 = new EmpleadoFijo("101001", "Ana Rodríguez", "8888-1111", "ana.rodriguez@empresa.com", 850000, 50000);
+        EmpleadoFijo fijo1 = new EmpleadoFijo("101001", "Ana Rodríguez", "8888-1111", "ana.rodriguez@empresa.com", 850000, 0);
         EmpleadoFijo fijo2 = new EmpleadoFijo("101002", "Carlos Méndez", "8888-2222", "carlos.mendez@empresa.com", 1200000, 150000);
         EmpleadoFijo fijo3 = new EmpleadoFijo("101003", "Laura Jiménez", "8888-3333", "laura.jimenez@empresa.com", 950000, 75000);
 
@@ -42,28 +52,76 @@ public class GestionEmpleados {
         arrEmp.add(comision1);
         arrEmp.add(comision2);
         arrEmp.add(comision3);
+        // </editor-fold>
 
+        // <editor-fold defaultstate="collapsed" desc="2. MOSTRAR LOS EMPLEADOS REGISTRADOS">
         //Recorrido mediante ciclos
+        System.out.println("╠═══════════════════════════════════════════════════════════════════════╣");
+        System.out.println("║     2. MOSTRAR LOS EMPLEADOS REGISTRADOS                              ║");
+        System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
+        System.out.println("║ ID\t║ Nombre\t║ Teléfono\t║ Correo\t\t\t║");
+        System.out.println("╠═══════╬═══════════════╬═══════════════╬═══════════════════════════════╣");
         
-        System.out.println("ID\tNombre\t\tTeléfono\tCorreo");
         for (Empleado empleado : arrEmp) {
             System.out.println(empleado.toString());
         }
 
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="3. BUSCAR UN EMPLEADO UTILIZANDO SU IDENTIFICACIÓN">
+
+        String tBusEmp = "101003";
+
+        buscarEmpleado(tBusEmp, arrEmp);
+
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="4. MOSTRAR EL PAGO CORRESPONDIENTE A CADA EMPLEADO">
+        
+        System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
+        System.out.println("║     4. MOSTRAR EL PAGO CORRESPONDIENTE A CADA EMPLEADO                ║");
+        System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
+        
+        for (Empleado empleado : arrEmp) {
+            Pagable p = (Pagable) empleado;
+            System.out.println(p.MostrarPago());
+        }
+
+        // </editor-fold>
+        
+        System.out.println("╚═══════╩═══════════════╩═══════════════╩═══════════════════════════════╝");
+    }
+
+    public static void buscarEmpleado(String pIdentificacion,
+            ArrayList<Empleado> pArrEmpleados) throws EmpleadoException {
         try {
-            if (existeIdentificacion(arrEmp, "101001")) {
-                throw new EmpleadoException(1, "Identificación duplicada");
+
+            if (!existeIdentificacion(pArrEmpleados, pIdentificacion)) {
+                System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
+                System.out.print("║     ");
+
+                throw new EmpleadoException(ErrorEmpleado.EMPLEADO_NO_EXISTE.getCodigo(), ErrorEmpleado.EMPLEADO_NO_EXISTE.getMensaje());
+            } else {
+
+                for (int i = 0; i < pArrEmpleados.size(); i++) {
+                    if (pArrEmpleados.get(i).getIdentificacion().equals(pIdentificacion)) {
+                        System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
+                        System.out.println("║     3. BUSCAR UN EMPLEADO UTILIZANDO SU IDENTIFICACIÓN --> " + pIdentificacion);
+                        System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
+                        System.out.println(pArrEmpleados.get(i).toString());
+                        System.out.println("╠═══════╬═══════════════╬═══════════════╬═══════════════════════════════╣");
+                    }
+                }
             }
         } catch (EmpleadoException e) {
             System.out.println("\tError num: (" + e.getCodError() + "): " + e.getMessage());
         }
-
     }
 
-    public static boolean existeIdentificacion(ArrayList<Empleado> pEmpleados,
+    public static boolean existeIdentificacion(ArrayList<Empleado> pArrEmpleados,
             String identificacion) {
 
-        for (Empleado tEmp : pEmpleados) {
+        for (Empleado tEmp : pArrEmpleados) {
             if (tEmp.getIdentificacion().equals(identificacion)) {
                 return true;
             }

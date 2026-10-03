@@ -1,4 +1,4 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.Excepciones;
 
 /**
  *
@@ -9,7 +9,8 @@ public enum ErrorEmpleado {
     VALOR_NEGATIVO(1, "El valor debe ser mayor que cero"),
     ID_DUPLICADA(2, "La identificación ya existe"),
     HORAS_INVALIDAS(3, "Las horas trabajadas no pueden ser negativas"),
-    PORCENTAJE_INVALIDO(4, "Porcentaje inválido {0.1 a 1.0}");
+    PORCENTAJE_INVALIDO(4, "Porcentaje inválido {0.1 a 1.0}"),
+    EMPLEADO_NO_EXISTE(5,"Empleado no encontrado");
 
     private final int codigo;
     private final String mensaje;
@@ -25,5 +26,9 @@ public enum ErrorEmpleado {
 
     public String getMensaje(String pExtra) {
         return mensaje + "-->[ " + pExtra+" ]";
+    }
+    
+    public String getMensaje() {
+        return mensaje;
     }
 }

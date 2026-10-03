@@ -1,4 +1,4 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.clsEmpleado;
 
 /**
  *
@@ -76,12 +76,11 @@ public abstract class Empleado implements Comparable<Empleado> {
     @Override
     public String toString() {
 
-        return String.format("%s \t%s \t%s \t%s",
+        return String.format("║%s\t║ %s\t║ %s\t║ %s\t║",
                 identificacion,
-                nombre.substring(0,Math.min(nombre.length(),10)),
+                nombre.substring(0,Math.min(nombre.length(),13)),
                 telefono.substring(0,Math.min(telefono.length(),10)),
-                correo.substring(0,Math.min(correo.length(),30)));
-
+                correo.substring(0,Math.min(correo.length(),30)));                    
     }
 
 }

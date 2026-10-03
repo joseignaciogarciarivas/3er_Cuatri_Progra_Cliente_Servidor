@@ -1,4 +1,4 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.Excepciones;
 
 /**
  *

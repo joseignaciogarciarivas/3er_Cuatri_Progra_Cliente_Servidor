@@ -1,4 +1,7 @@
-package com.ejercicio_09.model;
+package com.ejercicio_09.model.clsEmpleado;
+
+import com.ejercicio_09.model.Excepciones.EmpleadoException;
+import com.ejercicio_09.model.Excepciones.ErrorEmpleado;
 
 /**
  *
@@ -57,13 +60,20 @@ public class EmpleadoFijo extends Empleado implements Pagable {
     }
 
     @Override
-    public void MostrarPago() {
-        System.out.println("Salario Empleado del Fijo: " + CalcularPago());
+    public String MostrarPago() {
+        return String.format("║ [%s] [%f]", super.getIdentificacion() , CalcularPago());
     }
 
     @Override
     public int compareTo(Empleado otro) {
         return getIdentificacion().compareTo(otro.getIdentificacion());
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "EmpleadoFijo{" + "salarioBase=" + salarioBase + ", bonificacion=" + bonificacion + '}';
+    }
+    
+    
 
 }
