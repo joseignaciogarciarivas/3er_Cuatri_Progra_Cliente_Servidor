@@ -1,5 +1,7 @@
 package com.ejercicio_09.model.clsEmpleado;
 
+import com.ejercicio_09.GestionEmpleados;
+
 /**
  *
  * @author andresgonzalezgarcia
@@ -76,11 +78,17 @@ public abstract class Empleado implements Comparable<Empleado> {
     @Override
     public String toString() {
 
-        return String.format("║%s\t║ %s\t║ %s\t║ %s\t║",
-                identificacion,
-                nombre.substring(0,Math.min(nombre.length(),13)),
-                telefono.substring(0,Math.min(telefono.length(),10)),
-                correo.substring(0,Math.min(correo.length(),30)));                    
+        return String.format("║%s║ %-14s║%s║ %-30s║",
+                GestionEmpleados.centrar(identificacion, 7),
+                //GestionEmpleados.centrar(nombre.substring(0,Math.min(nombre.length(),13)),15),
+                nombre.substring(0,Math.min(nombre.length(),14)),
+                GestionEmpleados.centrar(telefono.substring(0,Math.min(telefono.length(),10)),15),
+                //GestionEmpleados.centrar(correo.substring(0,Math.min(correo.length(),30)),31));
+                correo.substring(0,Math.min(correo.length(),30)));
     }
-
+    
+    @Override
+    public int compareTo(Empleado otro) {
+        return this.identificacion.compareToIgnoreCase(otro.identificacion);
+    }
 }

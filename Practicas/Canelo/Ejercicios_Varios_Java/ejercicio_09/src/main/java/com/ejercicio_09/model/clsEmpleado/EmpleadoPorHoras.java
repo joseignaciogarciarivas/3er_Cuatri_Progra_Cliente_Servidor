@@ -72,9 +72,4 @@ public class EmpleadoPorHoras extends Empleado implements Pagable {
                 super.getIdentificacion(),
                 formato.format(CalcularPago()));
     }
-
-    @Override
-    public int compareTo(Empleado otro) {
-        return getIdentificacion().compareTo(otro.getIdentificacion());
-    }
 }
