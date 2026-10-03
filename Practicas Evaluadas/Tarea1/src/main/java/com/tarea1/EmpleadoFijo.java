@@ -29,7 +29,7 @@ public class EmpleadoFijo extends Empleado {
     public void setSalarioBase(double salarioBase) throws EmpleadoExceptions {
 
         if (salarioBase < 0) {
-            throw new EmpleadoExceptions(04, "El salario no puede ser negativo");
+            throw new EmpleadoExceptions(4, "El salario no puede ser negativo");
         }
         this.salarioBase = salarioBase;
     }
@@ -41,7 +41,7 @@ public class EmpleadoFijo extends Empleado {
     public void setBonificacion(double bonificacion) throws EmpleadoExceptions {
         
         if(bonificacion < 0){
-            throw new EmpleadoExceptions(05, "La bonificacion no puede ser negativa");
+            throw new EmpleadoExceptions(5, "La bonificacion no puede ser negativa");
         }
         this.bonificacion = bonificacion;
     }

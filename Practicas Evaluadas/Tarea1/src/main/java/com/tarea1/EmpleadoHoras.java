@@ -27,7 +27,7 @@ public class EmpleadoHoras extends Empleado {
 
     public void setHorasTrabajadas(int horasTrabajadas) throws EmpleadoExceptions{
         if (horasTrabajadas < 0) {
-            throw new EmpleadoExceptions(06, "Las horas trabajadas no puede ser negativo");
+            throw new EmpleadoExceptions(6, "Las horas trabajadas no puede ser negativo");
         }
         this.horasTrabajadas = horasTrabajadas;
     }
@@ -38,7 +38,7 @@ public class EmpleadoHoras extends Empleado {
 
     public void setValorHora(int valorHora) throws EmpleadoExceptions{
         if (valorHora < 0) {
-            throw new EmpleadoExceptions(06, "El valor de las horas no puede ser negativo");
+            throw new EmpleadoExceptions(7, "El valor de las horas no puede ser negativo");
         }
         this.valorHora = valorHora;
     }

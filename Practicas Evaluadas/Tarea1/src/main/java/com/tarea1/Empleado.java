@@ -43,7 +43,7 @@ public abstract class Empleado {
     public void setNombre(String nombre) throws EmpleadoExceptions {
 
         if (nombre.trim().length() == 0) {
-            throw new EmpleadoExceptions(01, "El nombre no tiene caracteres");
+            throw new EmpleadoExceptions(1, "El nombre no tiene caracteres");
         }
 
         this.nombre = nombre;
@@ -55,7 +55,7 @@ public abstract class Empleado {
 
     public void setNumeroTel(String numeroTel) throws EmpleadoExceptions {
         if (numeroTel.trim().length() == 0) {
-            throw new EmpleadoExceptions(02, "El numero no tiene caracteres");
+            throw new EmpleadoExceptions(2, "El numero no tiene caracteres");
         }
 
         this.numeroTel = numeroTel;
@@ -67,7 +67,7 @@ public abstract class Empleado {
 
     public void setCorreo(String correo) throws EmpleadoExceptions {
         if (correo.trim().length() == 0) {
-            throw new EmpleadoExceptions(03, "El correo no tiene caracteres");
+            throw new EmpleadoExceptions(3, "El correo no tiene caracteres");
         }
 
         this.correo = correo;

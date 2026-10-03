@@ -9,6 +9,7 @@ package com.tarea1;
  * @author Usuario
  */
 public class EmpleadoCom extends Empleado {
+
     private double salarioBase;
     private int ventasRealizadas;
     private double porcentajeComision;
@@ -27,9 +28,9 @@ public class EmpleadoCom extends Empleado {
         return salarioBase;
     }
 
-    public void setSalarioBase(double salarioBase) throws EmpleadoExceptions{
-        if(salarioBase<0){
-            throw new EmpleadoExceptions(2, "El salario no puede ser negativo");
+    public void setSalarioBase(double salarioBase) throws EmpleadoExceptions {
+        if (salarioBase < 0) {
+            throw new EmpleadoExceptions(8, "El salario no puede ser negativo");
         }
         this.salarioBase = salarioBase;
     }
@@ -38,7 +39,10 @@ public class EmpleadoCom extends Empleado {
         return ventasRealizadas;
     }
 
-    public void setVentasRealizadas(int ventasRealizadas) {
+    public void setVentasRealizadas(int ventasRealizadas) throws EmpleadoExceptions {
+        if (ventasRealizadas < 0) {
+            throw new EmpleadoExceptions(8, "El numero de las ventas no puede ser negativo");
+        }
         this.ventasRealizadas = ventasRealizadas;
     }
 
@@ -46,14 +50,16 @@ public class EmpleadoCom extends Empleado {
         return porcentajeComision;
     }
 
-    public void setPorcentajeComision(double porcentajeComision) {
+    public void setPorcentajeComision(double porcentajeComision) throws EmpleadoExceptions {
+        if (porcentajeComision < 0){
+            throw new EmpleadoExceptions(9, "El porcentaje de comision no puede ser negativo");
+        }
         this.porcentajeComision = porcentajeComision;
     }
 
-    @Override 
-    public double calcularPago(){
+    @Override
+    public double calcularPago() {
         return salarioBase + (ventasRealizadas * porcentajeComision);
-    }
-    
-    
+    }   
+
 }
