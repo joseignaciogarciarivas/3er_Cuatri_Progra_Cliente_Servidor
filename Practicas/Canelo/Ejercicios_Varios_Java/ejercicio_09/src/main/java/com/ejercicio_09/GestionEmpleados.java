@@ -20,6 +20,13 @@ public class GestionEmpleados {
 
     public static void main(String[] args) throws EmpleadoException {
 
+        // <editor-fold defaultstate="collapsed" desc="PARAMETRIZACION DE VALORES QA">
+
+        //Digite la identificación del empleado que quieres buscar
+        String tBusEmp = "101003";
+
+        // </editor-fold>
+        
         // <editor-fold defaultstate="collapsed" desc="1. REGISTRAR EMPLEADOS DE CUALQUIERA DE LAS TRES MODALIDADES">
         System.out.println("╔═══════════════════════════════════════════════════════════════════════╗");
         System.out.println("║     1. REGISTRAR EMPLEADOS DE CUALQUIERA DE LAS TRES MODALIDADES      ║");
@@ -70,17 +77,21 @@ public class GestionEmpleados {
         
         // <editor-fold defaultstate="collapsed" desc="3. BUSCAR UN EMPLEADO UTILIZANDO SU IDENTIFICACIÓN">
 
-        String tBusEmp = "101003";
-
         buscarEmpleado(tBusEmp, arrEmp);
 
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="4. MOSTRAR EL PAGO CORRESPONDIENTE A CADA EMPLEADO">
-        
-        System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
+                
         System.out.println("║     4. MOSTRAR EL PAGO CORRESPONDIENTE A CADA EMPLEADO                ║");
-        System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
+        //System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
+        System.out.println("╠═══════╦═══════════════════════════════════════════════════════════════╣");
+        //System.out.println("║ ID\t║ Salario\t\t\t\t\t\t\t║");
+        
+        System.out.printf("║%6s ║ %15s %47s%n","ID","SALARIO","║");
+        
+        
+        System.out.println("╠═══════╬═══════════════════════════════════════════════════════════════╣");
         
         for (Empleado empleado : arrEmp) {
             Pagable p = (Pagable) empleado;
@@ -89,15 +100,20 @@ public class GestionEmpleados {
 
         // </editor-fold>
         
-        System.out.println("╚═══════╩═══════════════╩═══════════════╩═══════════════════════════════╝");
+        System.out.println("╠═══════════════════════════════════════════════════════════════════════╣");
+        System.out.println("║     5. ORDENAR LOS EMPLEADOS POR SU ORDEN NATURAL.  POR AQUÍ VOY =D   ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════════════╝");
+        //System.out.println("╚═══════╩═══════════════╩═══════════════╩═══════════════════════════════╝");
     }
 
     public static void buscarEmpleado(String pIdentificacion,
             ArrayList<Empleado> pArrEmpleados) throws EmpleadoException {
         try {
-
-            if (!existeIdentificacion(pArrEmpleados, pIdentificacion)) {
                 System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
+                System.out.println("║     3. BUSCAR UN EMPLEADO UTILIZANDO SU IDENTIFICACIÓN --> " + pIdentificacion + "\t║");
+                
+            if (!existeIdentificacion(pArrEmpleados, pIdentificacion)) {
+                System.out.println("╠═══════════════════════════════════════════════════════════════════════╣");
                 System.out.print("║     ");
 
                 throw new EmpleadoException(ErrorEmpleado.EMPLEADO_NO_EXISTE.getCodigo(), ErrorEmpleado.EMPLEADO_NO_EXISTE.getMensaje());
@@ -105,16 +121,15 @@ public class GestionEmpleados {
 
                 for (int i = 0; i < pArrEmpleados.size(); i++) {
                     if (pArrEmpleados.get(i).getIdentificacion().equals(pIdentificacion)) {
-                        System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
-                        System.out.println("║     3. BUSCAR UN EMPLEADO UTILIZANDO SU IDENTIFICACIÓN --> " + pIdentificacion);
                         System.out.println("╠═══════╦═══════════════╦═══════════════╦═══════════════════════════════╣");
                         System.out.println(pArrEmpleados.get(i).toString());
-                        System.out.println("╠═══════╬═══════════════╬═══════════════╬═══════════════════════════════╣");
+                        System.out.println("╠═══════╩═══════════════╩═══════════════╩═══════════════════════════════╣");
                     }
                 }
             }
         } catch (EmpleadoException e) {
-            System.out.println("\tError num: (" + e.getCodError() + "): " + e.getMessage());
+            System.out.println("\tError num: (" + e.getCodError() + "): " + e.getMessage()+"\t\t\t\t║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════════════╣");
         }
     }
 

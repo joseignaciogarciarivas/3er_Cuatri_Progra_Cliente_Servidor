@@ -2,6 +2,8 @@ package com.ejercicio_09.model.clsEmpleado;
 
 import com.ejercicio_09.model.Excepciones.EmpleadoException;
 import com.ejercicio_09.model.Excepciones.ErrorEmpleado;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *
@@ -56,24 +58,23 @@ public class EmpleadoFijo extends Empleado implements Pagable {
     //Métodos y Funciones    
     @Override
     public double CalcularPago() {
+
         return this.salarioBase + this.bonificacion;
     }
 
     @Override
     public String MostrarPago() {
-        return String.format("║ [%s] [%f]", super.getIdentificacion() , CalcularPago());
+
+        NumberFormat formato = NumberFormat.getCurrencyInstance(new Locale("es", "CR"));
+
+        //System.out.println(formato.format(CalcularPago()).toString());
+        return String.format("║%s ║ %15s \t\t\t\t\t\t║",
+                super.getIdentificacion(),
+                formato.format(CalcularPago()));
     }
 
     @Override
     public int compareTo(Empleado otro) {
         return getIdentificacion().compareTo(otro.getIdentificacion());
     }
-
-    @Override
-    public String toString() {
-        return super.toString()+ "EmpleadoFijo{" + "salarioBase=" + salarioBase + ", bonificacion=" + bonificacion + '}';
-    }
-    
-    
-
 }

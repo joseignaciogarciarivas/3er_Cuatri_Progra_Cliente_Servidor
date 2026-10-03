@@ -2,6 +2,8 @@ package com.ejercicio_09.model.clsEmpleado;
 
 import com.ejercicio_09.model.Excepciones.EmpleadoException;
 import com.ejercicio_09.model.Excepciones.ErrorEmpleado;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *
@@ -62,7 +64,13 @@ public class EmpleadoPorHoras extends Empleado implements Pagable {
 
     @Override
     public String MostrarPago() {
-        return "Salario Empleado del Fijo: " + CalcularPago();
+
+        NumberFormat formato = NumberFormat.getCurrencyInstance(new Locale("es", "CR"));
+
+        //System.out.println(formato.format(CalcularPago()).toString());
+        return String.format("║%s ║ %15s \t\t\t\t\t\t║",
+                super.getIdentificacion(),
+                formato.format(CalcularPago()));
     }
 
     @Override
