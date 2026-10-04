@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tarea1;
 
 /**
  *
  * @author Usuario
  */
-public class EmpleadoCom extends Empleado {
+public class EmpleadoCom extends Empleado implements Pagable {
 
     private double salarioBase;
     private int ventasRealizadas;
@@ -51,7 +47,7 @@ public class EmpleadoCom extends Empleado {
     }
 
     public void setPorcentajeComision(double porcentajeComision) throws EmpleadoExceptions {
-        if (porcentajeComision < 0){
+        if (porcentajeComision < 0) {
             throw new EmpleadoExceptions(9, "El porcentaje de comision no puede ser negativo");
         }
         this.porcentajeComision = porcentajeComision;
@@ -60,6 +56,13 @@ public class EmpleadoCom extends Empleado {
     @Override
     public double calcularPago() {
         return salarioBase + (ventasRealizadas * porcentajeComision);
-    }   
+    }
 
+    @Override
+    public String MostrarPago() {
+        System.out.println("Reporte de pago");
+        return  " \t ID: " + getId().toString() + " \n\t Nombre: " + getNombre().toString() + " \n\t Numero: " + getNumeroTel().toString() + " \n\t Correo: " + getCorreo().toString() + " \n\t Pago Total: " + calcularPago();
+                
+        
+    }
 }

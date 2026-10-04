@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tarea1;
 
 /**
  *
  * @author Usuario
  */
-public abstract class Empleado {
+public abstract class Empleado implements Pagable{
 
     private String id;
     private String nombre;
@@ -84,5 +80,6 @@ public abstract class Empleado {
         sb.append('}');
         return sb.toString();
     }
-
+    
+    
 }

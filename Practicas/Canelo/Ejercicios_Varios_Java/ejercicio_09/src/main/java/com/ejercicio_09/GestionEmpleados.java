@@ -204,7 +204,7 @@ public class GestionEmpleados {
         
     }
 
-    // <editor-fold defaultstate="collapsed" desc="MÉTODOS Y FUNCIONES">
+     // <editor-fold defaultstate="collapsed" desc="MÉTODOS Y FUNCIONES">
     
     public static void buscarEmpleado(String pIdentificacion,
             ArrayList<Empleado> pArrEmpleados) throws EmpleadoException {

@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tarea1;
 
 /**
  *
  * @author Usuario
  */
-public class EmpleadoHoras extends Empleado {
+public class EmpleadoHoras extends Empleado implements Pagable{
      private int horasTrabajadas;   
      private int valorHora;
 
@@ -43,10 +39,16 @@ public class EmpleadoHoras extends Empleado {
         this.valorHora = valorHora;
     }
 
-  
-     
      @Override
      public double calcularPago(){
          return horasTrabajadas * valorHora;
      }
+     
+    @Override
+    public String MostrarPago() {
+        System.out.println("Reporte de pago");
+        return  " \t ID: " + getId().toString() + " \n\t Nombre: " + getNombre().toString() + " \n\t Numero: " + getNumeroTel().toString() + " \n\t Correo: " + getCorreo().toString() + " \n\t Pago Total: " + calcularPago();
+                
+        
+    }
 }
