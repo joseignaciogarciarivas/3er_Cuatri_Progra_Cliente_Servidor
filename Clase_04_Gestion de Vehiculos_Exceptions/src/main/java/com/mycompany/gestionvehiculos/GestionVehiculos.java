@@ -43,6 +43,8 @@ public class GestionVehiculos {
         Dmax.setCantPuertas(2);
         vehiculos.add(Dmax);
         try{
+            Dmax.encender();
+            Dmax.encender();
             Dmax.acelerar();
             Dmax.detener();
             Dmax.girar();

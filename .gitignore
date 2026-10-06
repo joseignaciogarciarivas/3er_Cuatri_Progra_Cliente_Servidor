@@ -8,3 +8,6 @@ nb-configuration.xml
 # Archivos temporales
 .DS_Store
 Thumbs.db
+
+# VS Code
+.vscode/
