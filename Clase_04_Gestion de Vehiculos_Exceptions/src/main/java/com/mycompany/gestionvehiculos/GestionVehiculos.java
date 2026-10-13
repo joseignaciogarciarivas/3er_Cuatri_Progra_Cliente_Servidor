@@ -35,9 +35,9 @@ public class GestionVehiculos {
         System.out.println("Vehiculos creados: " + Vehiculo.getCantidadVehiculos());
         System.out.println("----------------------------------");
         
-        /*SwingUtilities.invokeLater(()->{
+        SwingUtilities.invokeLater(()->{
             new VehiculoPickupGUI();
-        });*/
+        });
         
         VehiculoPickup Dmax = new VehiculoPickup("Isuzu", "454dff5f6ghg45gg", miMotor);
         Dmax.setCantPuertas(2);
